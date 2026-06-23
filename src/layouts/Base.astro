@@ -10,16 +10,19 @@ const { title = "maevik.dev" } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="icon" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<ClientRouter />
 	</head>
-	<body class="bg-stone-100 min-h-screen flex flex-col">
+	<body 
+		class="bg-stone-100 text-stone-900 min-h-screen flex flex-col"
+		transition:persist
+	>
 		<Header />
-			<main class="flex-1 w-full flex items-center justify-center text-dark text-center" transition:animate="fade">
+			<main class="flex-1 w-full flex items-center justify-center text-center" transition:animate="fade">
 				<slot />
 			</main>
 		<Footer />
