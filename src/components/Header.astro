@@ -1,0 +1,16 @@
+---
+const { pathname } = Astro.url;
+
+const currentPath = pathname == "/"
+    ? ""
+    : pathname.replace(/\/$/, "").substring(1)
+---
+
+<header class="w-full p-5 text-sm text-dark">
+    <a href="/" class="opacity-30 hover:opacity-100">
+        maevik
+    </a>
+    {currentPath && (
+        <span class="opacity-30 hover:opacity-100"> / {currentPath}</span>
+    )}
+</header>

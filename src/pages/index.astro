@@ -1,0 +1,22 @@
+---
+import Base from "../layouts/Base.astro";
+import NavBar from "../components/NavBar.astro";
+import LinkRow from "../components/LinkRow.astro";
+---
+
+<Base>
+  <div class="w-full max-w-xs">
+    <nav class="flex gap-4 text-center">
+      <a href="/about" class="hover:opacity-100">about</a>
+      <a href="/blog" class="hover:opacity-100">blog</a>
+    </nav>
+
+    <hr class="my-5 border-dark opacity-20" />
+
+    <LinkRow href="https://github.com/maevik" title="github" text="maevik" />
+    <LinkRow href="mailto:contact@maevik.dev" title="email" text="contact@maevik.dev" />
+    <LinkRow href="https://discord.com/users/1333390445509742666" title="discord" text="@maevik84" />
+    <LinkRow href="https://t.me/maevik84" title="telegram" text="@maevik84" />
+  </div>
+</Base>
+
