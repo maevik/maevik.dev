@@ -15,10 +15,16 @@ const { title = "maevik.dev" } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<ClientRouter />
+        <ClientRouter />
+        <!-- https://github.com/withastro/astro/issues/15470 -->
+        <script>
+            document.addEventListener('astro:before-swap', (e) => {
+                e.newDocument.querySelector('script[src*="/cloudflare-static/email-decode"]')?.setAttribute('data-astro-rerun', '');
+            });
+        </script>
 	</head>
 	<body 
-		class="bg-stone-100 text-stone-900 min-h-screen flex flex-col"
+		class="dot-matrix bg-amber-50 text-stone-900 min-h-screen flex flex-col"
 		transition:persist
 	>
 		<Header />

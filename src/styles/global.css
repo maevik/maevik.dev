@@ -10,6 +10,11 @@ html {
   font-family: "Source Serif 4", Georgia, serif;
 }
 
+.dot-matrix {
+  background-image: radial-gradient(rgba(46, 42, 36, 0.07) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
 .md-content {
   h1 {
     @apply text-3xl md:text-4xl font-bold mb-4 mt-10;
