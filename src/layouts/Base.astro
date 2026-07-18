@@ -4,7 +4,11 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
 
-const { title = "maevik.dev" } = Astro.props;
+let { title, description, frontmatter } = Astro.props;
+title = title || frontmatter?.title;
+description = description || frontmatter?.description || "maevik's personal website";
+const siteTitle = title ? `maevik.dev | ${title}` : "maevik.dev";
+const url = Astro.url;
 ---
 
 <html lang="en">
@@ -14,7 +18,15 @@ const { title = "maevik.dev" } = Astro.props;
 		<link rel="icon" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>{siteTitle}</title>
+		<meta property="og:title" content={siteTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={url} />
+		<meta property="og:image" content="/favicon.png" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={siteTitle} />
+		<meta name="twitter:description" content={description} />
         <ClientRouter />
         <!-- https://github.com/withastro/astro/issues/15470 -->
         <script>
@@ -24,7 +36,7 @@ const { title = "maevik.dev" } = Astro.props;
         </script>
 	</head>
 	<body 
-		class="dot-matrix bg-amber-50 text-stone-900 min-h-screen flex flex-col"
+		class="dot-matrix bg-stone-50 text-stone-800 min-h-screen flex flex-col"
 		transition:persist
 	>
 		<Header />

@@ -1,13 +1,12 @@
 ---
 const { href, title, text } = Astro.props;
-const isExternal = href.startsWith("http");
 ---
 
 <div class="flex justify-between">
   <span class="font-bold">{title}</span>
   <a
     href={href}
-    class="text-sky-900 no-underline hover:underline"
+    class="text-sky-900 no-underline"
   >
     {text}
   </a>
