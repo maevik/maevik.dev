@@ -1,16 +1,22 @@
 ---
 const { pathname } = Astro.url;
 
-const currentPath = pathname == "/"
-    ? ""
-    : pathname.replace(/\/$/, "").substring(1)
+const segments = pathname == "/"
+    ? []
+    : pathname.replace(/\/$/, "").substring(1).split("/")
 ---
 
 <header class="w-full p-5 text-sm text-dark">
     <a href="/" class="opacity-30 hover:opacity-100">
         maevik
     </a>
-    {currentPath && (
-        <span class="opacity-30 hover:opacity-100"> / {currentPath}</span>
-    )}
+    {segments.map((segment, i) => {
+        const href = "/" + segments.slice(0, i + 1).join("/");
+        const isLast = i === segments.length - 1;
+        return isLast ? (
+            <span class="opacity-30"> / {segment}</span>
+        ) : (
+            <a href={href} class="opacity-30 hover:opacity-100"> / {segment}</a>
+        );
+    })}
 </header>
