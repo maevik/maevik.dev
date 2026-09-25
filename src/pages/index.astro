@@ -1,21 +1,37 @@
 ---
 import Base from "../layouts/Base.astro";
 import LinkRow from "../components/LinkRow.astro";
+import Markdown from "../layouts/Markdown.astro";
 ---
 
 <Base>
-  <div class="w-full max-w-xs">
-    <nav class="flex gap-4 text-center">
-      <a href="/about">about</a>
-      <a href="/blog">blog</a>
-    </nav>
-
-    <hr class="my-5 border-stone-900 opacity-20" />
-
     <LinkRow href="https://github.com/maevik" title="github" text="maevik" />
-    <LinkRow href="mailto:hi@maevik.dev" title="email" text="hi@maevik.dev" />
-    <LinkRow href="https://discord.com/users/1333390445509742666" title="discord" text="@maevik84" />
-    <LinkRow href="https://t.me/maevik84" title="telegram" text="@maevik84" />
-  </div>
-</Base>
+	<LinkRow href="mailto:hi@maevik.dev" title="email" text="hi@maevik.dev" />
+	<LinkRow href="https://discord.com/users/1333390445509742666" title="discord" text="@maevik84" />
+	<LinkRow href="https://t.me/maevik84" title="telegram" text="@maevik84" />
 
+    <Markdown>
+      <h1>About</h1>
+
+      <p>
+        20 years old, first year <a href="https://www.uopeople.edu/">computer science student</a>.
+        My interests lie in computer systems.
+      </p>
+
+      <p>
+        Most of my projects and work include full-stack development, engineering in fields like both software & hardware.
+      </p>
+
+      <h2>Other</h2>
+
+      <p>
+        If you're a recruiter or somehow came to this page, you can download my redacted <a href="https://raw.githubusercontent.com/maevik/resume/refs/heads/main/resume.pdf">resume</a>.
+      </p>
+
+      <p>
+        This website is <a href="https://en.wikipedia.org/wiki/E-reader">E-reader</a> styled,
+        written in <a href="https://astro.build/">Astro</a>, and deployed via <a href="https://netlify.com">Netlify</a>.
+      </p>
+    </Markdown>
+
+</Base>

@@ -40,8 +40,20 @@ const url = Astro.url;
 		transition:persist
 	>
 		<Header />
-			<main class="flex-1 w-full flex items-center justify-center text-center" transition:animate="fade">
+		<div class="sticky top-0 z-10 bg-stone-50/90 px-6 py-5 backdrop-blur-sm sm:px-8">
+			<div class="mx-auto max-w-[65ch]">
+				<nav class="flex gap-4">
+					<a href="/blog">blog</a>
+					<a href="/project">project</a>
+				</nav>
+
+				<hr class="mt-5 border-stone-900 opacity-20" />
+			</div>
+		</div>
+			<main class="flex-1 flex items-center justify-center text-center" transition:animate="fade">
+				<div class="w-full max-w-[65ch]">
 				<slot />
+				</div>
 			</main>
 		<Footer />
 	</body>

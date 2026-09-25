@@ -13,3 +13,7 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
+## License
+
+Copyright (c) 2026 maevik (https://github.com/maevik, https://maevik.dev). All rights reserved.
+Unauthorized reproduction, distribution, or modification is strictly prohibited.
