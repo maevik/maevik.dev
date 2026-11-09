@@ -1,0 +1,28 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo {{ hugo.Version }}">
+<meta name="description" content="{{ .Description | default site.Params.description }}">
+{{ $title := printf "$ cat maevik%s.html" (strings.TrimSuffix "/" .RelPermalink) }}
+<title>{{ $title }}</title>
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ .Description | default site.Params.description }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ $preview := .Params.image | default "/banners/banner-default.png" }}
+<meta property="og:image" content="{{ $preview | absURL }}">
+<meta property="og:image:alt" content="{{ .Title | default site.Title }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@maevik84">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ .Description | default site.Params.description }}">
+<meta name="twitter:image" content="{{ $preview | absURL }}">
+<meta name="twitter:image:alt" content="{{ .Title | default site.Title }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ $background := (resources.Get "images/bg.png").Resize "2400x webp q80" }}
+<style>
+  :root {
+    --background-image: url('{{ $background.RelPermalink }}');
+  }
+</style>
+<link rel="stylesheet" href="/css/site.css">

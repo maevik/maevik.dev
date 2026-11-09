@@ -1,0 +1,15 @@
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+/bak/
+
+.env
+.env.*
+!.env.example
+
+.idea/
+.DS_Store
+Thumbs.db
+
+*.log

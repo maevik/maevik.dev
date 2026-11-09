@@ -1,0 +1,26 @@
+{{ define "main" }}
+  <ul class="entry-list">
+    {{ $pages := .Pages.ByDate.Reverse }}
+    {{ if not $pages }}
+      <li class="panel empty-state">nothing here yet :3</li>
+    {{ end }}
+    {{ range $i, $p := $pages }}
+      {{ $image := $p.Params.image | default "/banners/banner-default.png" }}
+      <li class="entry-card">
+        <a href="{{ $p.RelPermalink }}">
+          {{ partial "image.html" (dict "src" $image "class" "banner") }}
+        </a>
+        <div class="panel entry-caption">
+          <div>
+            <span class="muted">{{ add $i 1 }}.</span>
+            <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+          </div>
+          {{ with $p.Description }}
+            <p>{{ . }}</p>
+          {{ end }}
+        </div>
+        <time class="panel entry-date">{{ $p.Date.Format "Jan 2, 2006" }}</time>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

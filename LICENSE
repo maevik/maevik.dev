@@ -1,0 +1,27 @@
+Copyright (c) 2026 Maevik
+https://maevik.dev
+
+Except where otherwise noted, the original code and content in this repository
+are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike
+4.0 International License (CC BY-NC-SA 4.0).
+
+You may share and adapt this work for noncommercial purposes, provided that you
+give appropriate credit, indicate changes, and distribute adaptations under the
+same license. Copyright remains with Maevik.
+
+The full license terms are available at:
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+Third-party materials are excluded from this license and remain subject to their
+respective licenses and rights, including:
+
+- Karla and Noto fonts: SIL Open Font License; see static/fonts/OFL-*.txt.
+- Social icons: their respective upstream licenses and trademark rights.
+  https://simpleicons.org/
+  https://github.com/Templarian/MaterialDesign
+- Background artwork: created by sharp_maker using the rokehan tool; see the
+  attribution in content/blog/renovated-website.md.
+  https://tools.oyasumi-gamedev.com/rokehan/
+  https://x.com/sharp_maker
+
+No ownership of third-party materials or trademarks is claimed.

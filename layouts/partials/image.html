@@ -1,0 +1,25 @@
+{{ $src := .src }}
+{{ $image := resources.Get (printf "images/%s" (strings.TrimPrefix "/" $src)) }}
+{{ if and $image (ne $image.MediaType.SubType "gif") (ne $image.MediaType.SubType "svg") }}
+  {{ $large := $image.Resize (printf "%dx webp q80" (math.Min 1600 $image.Width | int)) }}
+  {{ $small := $image.Resize (printf "%dx webp q80" (math.Min 640 $image.Width | int)) }}
+  <img
+    src="{{ $large.RelPermalink }}"
+    srcset="{{ $small.RelPermalink }} {{ $small.Width }}w{{ if ne $small.Width $large.Width }}, {{ $large.RelPermalink }} {{ $large.Width }}w{{ end }}"
+    sizes="(max-width: 800px) 100vw, 800px"
+    width="{{ $large.Width }}"
+    height="{{ $large.Height }}"
+    alt="{{ .alt | default "" }}"
+    class="{{ .class | default "" }}"
+    loading="{{ .loading | default "lazy" }}"
+    decoding="async"
+  >
+{{ else }}
+  <img
+    src="{{ $src }}"
+    alt="{{ .alt | default "" }}"
+    class="{{ .class | default "" }}"
+    loading="{{ .loading | default "lazy" }}"
+    decoding="async"
+  >
+{{ end }}
