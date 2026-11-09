@@ -2,7 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Hugo {{ hugo.Version }}">
 <meta name="description" content="{{ .Description | default site.Params.description }}">
-{{ $title := printf "$ cat maevik%s.html" (strings.TrimSuffix "/" .RelPermalink) }}
+{{ $path := strings.TrimSuffix ".html" (strings.TrimSuffix "/" .RelPermalink) }}
+{{ $title := printf "$ cat maevik%s.html" $path }}
 <title>{{ $title }}</title>
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ .Description | default site.Params.description }}">
@@ -19,10 +20,20 @@
 <meta name="twitter:image" content="{{ $preview | absURL }}">
 <meta name="twitter:image:alt" content="{{ .Title | default site.Title }}">
 <link rel="canonical" href="{{ .Permalink }}">
-{{ $background := (resources.Get "images/bg.png").Resize "2400x webp q80" }}
+{{ $source := resources.Get "images/bg.png" }}
+{{ $background := $source.Resize "2400x webp q80" }}
+{{ $mobileBackground := $source.Resize "960x webp q80" }}
+<link rel="preload" as="image" type="image/webp" href="{{ $background.RelPermalink }}" media="(width > 600px)">
+<link rel="preload" as="image" type="image/webp" href="{{ $mobileBackground.RelPermalink }}" media="(width <= 600px)">
 <style>
   :root {
     --background-image: url('{{ $background.RelPermalink }}');
+  }
+
+  @media (max-width: 600px) {
+    :root {
+      --background-image: url('{{ $mobileBackground.RelPermalink }}');
+    }
   }
 </style>
 <link rel="stylesheet" href="/css/site.css">

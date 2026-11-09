@@ -2,6 +2,7 @@ baseURL = 'https://maevik.dev/'
 locale = 'en-us'
 title = 'maevik.dev'
 enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term']
 
 [params]
   description = "my personal website"

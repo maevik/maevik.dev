@@ -8,7 +8,7 @@
       {{ $image := $p.Params.image | default "/banners/banner-default.png" }}
       <li class="entry-card">
         <a href="{{ $p.RelPermalink }}">
-          {{ partial "image.html" (dict "src" $image "class" "banner") }}
+          {{ partial "image.html" (dict "src" $image "class" "banner" "loading" (cond (eq $i 0) "eager" "lazy")) }}
         </a>
         <div class="panel entry-caption">
           <div>
