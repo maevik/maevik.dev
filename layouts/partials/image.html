@@ -12,6 +12,9 @@
     alt="{{ .alt | default "" }}"
     class="{{ .class | default "" }}"
     loading="{{ .loading | default "lazy" }}"
+    {{ with .priority }}
+      fetchpriority="{{ . }}"
+    {{ end }}
     decoding="async"
   >
 {{ else }}
@@ -19,6 +22,12 @@
     src="{{ $src }}"
     alt="{{ .alt | default "" }}"
     class="{{ .class | default "" }}"
+    {{ with $image }}
+      {{ if ne .MediaType.SubType "svg" }}
+        width="{{ .Width }}"
+        height="{{ .Height }}"
+      {{ end }}
+    {{ end }}
     loading="{{ .loading | default "lazy" }}"
     decoding="async"
   >

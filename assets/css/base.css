@@ -1,0 +1,84 @@
+:root {
+  color-scheme: light;
+  --background: #fff;
+  --surface: #f8fafc;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --link: #0369a1;
+  --chip: #eef2f6;
+  --radius: .5rem;
+  --border: #e2e8f0;
+}
+
+html {
+  font: 17px 'Karla', system-ui, sans-serif;
+  background: var(--background);
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--background);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+}
+
+.panel {
+  background: var(--surface);
+  border: .5px solid var(--border);
+  border-radius: var(--radius);
+  padding: .6rem 1rem;
+}
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.empty-state {
+  text-align: center;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background: #000;
+    --surface: #080808;
+    --ink: #e5e5e5;
+    --muted: #a3a3a3;
+    --link: #7dd3fc;
+    --chip: #101010;
+    --border: #1c1c1c;
+  }
+}

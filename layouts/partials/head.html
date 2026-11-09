@@ -1,39 +1,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Hugo {{ hugo.Version }}">
-<meta name="description" content="{{ .Description | default site.Params.description }}">
+{{ $description := .Description | default site.Params.description }}
+<meta name="description" content="{{ $description }}">
 {{ $path := strings.TrimSuffix ".html" (strings.TrimSuffix "/" .RelPermalink) }}
-{{ $title := printf "$ cat maevik%s.html" $path }}
+{{ $title := printf "$ cat ~/maevik%s.html" $path }}
 <title>{{ $title }}</title>
 <meta property="og:title" content="{{ $title }}">
-<meta property="og:description" content="{{ .Description | default site.Params.description }}">
+<meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 {{ $preview := .Params.image | default "/banners/banner-default.png" }}
+{{ $previewImage := resources.Get (printf "images/%s" (strings.TrimPrefix "/" $preview)) }}
+{{ if and $previewImage (ne $previewImage.MediaType.SubType "gif") (ne $previewImage.MediaType.SubType "svg") }}
+  {{ $preview = ($previewImage.Fill "1200x630 jpg q80").RelPermalink }}
+{{ end }}
 <meta property="og:image" content="{{ $preview | absURL }}">
 <meta property="og:image:alt" content="{{ .Title | default site.Title }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@maevik84">
 <meta name="twitter:title" content="{{ $title }}">
-<meta name="twitter:description" content="{{ .Description | default site.Params.description }}">
+<meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $preview | absURL }}">
 <meta name="twitter:image:alt" content="{{ .Title | default site.Title }}">
 <link rel="canonical" href="{{ .Permalink }}">
-{{ $source := resources.Get "images/bg.png" }}
-{{ $background := $source.Resize "2400x webp q80" }}
-{{ $mobileBackground := $source.Resize "960x webp q80" }}
-<link rel="preload" as="image" type="image/webp" href="{{ $background.RelPermalink }}" media="(width > 600px)">
-<link rel="preload" as="image" type="image/webp" href="{{ $mobileBackground.RelPermalink }}" media="(width <= 600px)">
-<style>
-  :root {
-    --background-image: url('{{ $background.RelPermalink }}');
-  }
-
-  @media (max-width: 600px) {
-    :root {
-      --background-image: url('{{ $mobileBackground.RelPermalink }}');
-    }
-  }
-</style>
-<link rel="stylesheet" href="/css/site.css">
+<link rel="preload" href="/fonts/karla-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+{{ partial "styles.html" . }}
+{{ $scramble := resources.Get "js/scramble.js" | minify | fingerprint }}
+<script src="{{ $scramble.RelPermalink }}" defer></script>
+{{ if .IsHome }}
+  {{ $greeting := resources.Get "js/typing.js" | minify | fingerprint }}
+  <script src="{{ $greeting.RelPermalink }}" defer></script>
+{{ end }}

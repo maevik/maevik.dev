@@ -1,45 +1,39 @@
 ---
 title: Renovated Website
-description: Almost a year of procrastinating, I've decided to do something
+description: After almost a year of procrastinating, my personal site finally got a proper renovation.
 date: 2026-10-15
+lastmod: 2026-11-09
 tags: [site, design]
 image: /bg.png
 ---
 
 After almost a year of procrastinating, I've finally made up my mind.
 
-I want to focus on my career and work on a project more often than I used to. So renovating this website to stop being "someday" and became part of the changes I am making towards my future.
+I want to focus more on my career and actually work on my projects instead of leaving everything for "someday." Renovating this website felt like a small place to start.
 
----
+Of course, I ended up changing the design more than a few times. So here's what the site looks like now, rather than what I thought it would look like when I first wrote this post.
 
-## The idea
+## Keeping it plain
 
-For this site I got an idea: make it abit close to manga style while keeping some of the colours, instead of being black and white. Every page here is line art. Light mode tints the paper light blue, and dark mode inverts the drawing and drops a deep navy over it, with a few stars for the night sky.
+I still wanted a bit of that manga-inspired feel, but having the city drawing behind every page was too distracting. It now sits above the introduction on the homepage, where you can actually see it without trying to read text over it.
 
-![Image](/bg.png)
+![Line-art city scenery used on the homepage](/bg.png)
 
-The second thing is that it had to stay plain and clean, for me and for everyone visiting my site to read my posts.
+The rest is fairly simple: readable text, softly rounded panels, and thin borders. Light mode and Dark modes which follow your system settings.
 
----
+There are a few playful bits too. The name scrambles into place in the header and homepage greeting types animations. Most are fairly basic stuffs.
 
-## Slow but unlike manual developement
+## About Clanker usage
 
-While making it, I don't want to waste my time writing all the CSS styles myself on a page that is only to be used for showing some of my informations and posts.
+Yes, I've used a clanker to help with the rebuild in stuffs like templates and css.
 
-So I got an idea to use the clanker to build the website slowly by slowly, instead of vibe-coding and one-shotting a whole thing without any creativity in between.
+I'm not going to put a precise percentage on how much AI was used. 
+The site changed enough that the old number wouldn't mean much anymore.
 
-And the result is as you can see.
+Using a tool also doesn't mean the result is automatically correct so feel free to make a contribution on the [GitHub repository](https://github.com/maevik/maevik.dev).
 
-I got a working personal site without taking more than two days and those two days weren't free days. I was working on this while working at my company at the same time.
+## The Artwork
 
----
+The city illustration was generated using [the rokehan tool](https://tools.oyasumi-gamedev.com/rokehan/). If you like that kind of scenery, It's a pretty cool project worth checking out even tho it was heavily ai generated.
 
-## About the clanker usage
-
-20% of the code behind this site is written by a clanker, so it is fair to ask where the lines are. I did not let a clanker decide how this website should be written. What I handed over was mostly the repetitive work, such as those redundant CSS classes, while the code style and how each line ended up being written were kept my way.
-
-So the code here is produced cleanly and carries no copyright from anyone else, but that does not mean I believe it is entirely clean either.
-
-If there is something worth pointing out in the code, such as code that infringes on someone's copyright, please open an issue on the [GitHub repository of this site](https://github.com/maevik/maevik.dev) and I will look into it.
-
-And that is it. This would be the end of my blog post!
+And that's about it. Now I should probably spend less time renovating the portfolio and more time making things to put on it lol.

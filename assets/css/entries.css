@@ -1,0 +1,30 @@
+.entry-card {
+  position: relative;
+}
+
+.entry-caption {
+  position: absolute;
+  bottom: .75rem;
+  left: .75rem;
+  max-width: 75%;
+  padding: .4rem .75rem;
+  font-size: .9rem;
+}
+
+.entry-caption p {
+  margin: .2rem 0;
+}
+
+.entry-date {
+  position: absolute;
+  right: .75rem;
+  top: .75rem;
+  padding: .4rem .75rem;
+  font-size: .9rem;
+}
+
+@media (max-width: 600px) {
+  .entry-caption {
+    max-width: 80%;
+  }
+}

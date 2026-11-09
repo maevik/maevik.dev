@@ -1,0 +1,36 @@
+{{ $shared := slice
+  (resources.Get "css/fonts.css")
+  (resources.Get "css/base.css")
+  (resources.Get "css/layout.css")
+}}
+
+{{ $pageStyles := slice }}
+{{ $pageName := "" }}
+{{ if .IsHome }}
+  {{ $pageName = "home" }}
+  {{ $pageStyles = slice (resources.Get "css/content.css") (resources.Get "css/home.css") }}
+{{ else if eq .Kind "section" }}
+  {{ $pageName = "list" }}
+  {{ $pageStyles = slice (resources.Get "css/banner.css") (resources.Get "css/entries.css") }}
+{{ else if .IsPage }}
+  {{ $pageName = "article" }}
+  {{ $pageStyles = slice (resources.Get "css/content.css") (resources.Get "css/banner.css") (resources.Get "css/article.css") }}
+{{ end }}
+
+{{ if hugo.IsServer }}
+  {{ range $shared }}
+    {{ .Publish }}
+  {{ end }}
+  {{ $styles := resources.Get "css/styles.css" }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  {{ range $pageStyles }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{ end }}
+{{ else }}
+  {{ $styles := $shared | resources.Concat "css/styles.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  {{ with $pageStyles }}
+    {{ $pageCSS := . | resources.Concat (printf "css/%s-page.css" $pageName) | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $pageCSS.RelPermalink }}">
+  {{ end }}
+{{ end }}

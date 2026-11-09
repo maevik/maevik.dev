@@ -1,0 +1,65 @@
+.md-content {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.md-content h1 {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+.md-content h2 {
+  font-size: 1.5rem;
+  margin: 2.5rem 0 1rem;
+}
+
+.md-content h3 {
+  font-size: 1.25rem;
+}
+
+.md-content p {
+  margin: 0 0 1.5rem;
+}
+
+.md-content ul,
+.md-content ol {
+  padding-left: 2rem;
+}
+
+.md-content pre {
+  background: var(--chip);
+  border-radius: var(--radius);
+  border: .5px solid var(--border);
+  padding: 1.2rem;
+  overflow: auto;
+}
+
+.md-content code {
+  background: var(--chip);
+  padding: .1rem .3rem;
+  border-radius: var(--radius);
+  border: .5px solid var(--border);
+}
+
+.md-content img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: .5px solid var(--border);
+}
+
+.md-content .signature {
+  display: block;
+  width: 6rem;
+  margin-left: auto;
+  mix-blend-mode: multiply;
+  border: 0;
+  border-radius: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .md-content .signature {
+    filter: invert(1);
+    mix-blend-mode: screen;
+  }
+}

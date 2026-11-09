@@ -1,0 +1,55 @@
+.article {
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero .banner {
+  height: 18rem;
+}
+
+.hero-caption {
+  position: absolute;
+  bottom: .75rem;
+  left: .75rem;
+  max-width: 80%;
+  padding: .7rem 1rem;
+}
+
+.hero-caption h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.hero-caption p {
+  margin: .2rem 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-top: .5rem;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.meta > * {
+  background: var(--chip);
+  padding: .1rem .5rem;
+  border-radius: var(--radius);
+  border: .5px solid var(--border);
+}
+
+.article-body {
+  margin-top: .75rem;
+  padding: 1.25rem 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .hero .banner {
+    height: 14rem;
+  }
+}
