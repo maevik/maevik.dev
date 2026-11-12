@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $image := .Params.image | default "/banners/banner-default.png" }}
+  {{ $image := .Params.image | default "/banners/banner-default.webp" }}
   <article class="article">
     <div class="hero">
       {{ partial "image.html" (dict "src" $image "class" "banner" "loading" "eager") }}

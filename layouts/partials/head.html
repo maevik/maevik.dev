@@ -10,7 +10,7 @@
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-{{ $preview := .Params.image | default "/banners/banner-default.png" }}
+{{ $preview := .Params.image | default "/banners/banner-default.webp" }}
 {{ $previewImage := resources.Get (printf "images/%s" (strings.TrimPrefix "/" $preview)) }}
 {{ if and $previewImage (ne $previewImage.MediaType.SubType "gif") (ne $previewImage.MediaType.SubType "svg") }}
   {{ $preview = ($previewImage.Fill "1200x630 jpg q80").RelPermalink }}

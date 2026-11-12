@@ -18,7 +18,7 @@ disableKinds = ['taxonomy', 'term']
 [[module.mounts]]
   source = 'static'
   target = 'static'
-  files = ['! bg.png', '! bg-line-art.png', '! banners/**']
+  files = ['! bg.png', '! bg-line-art.png', '! banners/**', '! png/**']
 
 [[module.mounts]]
   source = 'assets'

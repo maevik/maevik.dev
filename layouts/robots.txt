@@ -1,2 +1,19 @@
+# COPYRIGHT / AI NOTICE:
+# Search and indexing access is permitted only to provide search results and citations.
+# No license or permission is granted to use any content from this site—including content found,
+# retrieved, indexed, cached, or returned by search—for training, fine-tuning, or improving AI models.
+# Search access does not grant training rights. Training crawlers are explicitly disallowed below.
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: {{ "sitemap.xml" | absURL }}

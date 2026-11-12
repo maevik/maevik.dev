@@ -4,7 +4,7 @@ description: After almost a year of procrastinating, my personal site finally go
 date: 2026-10-15
 lastmod: 2026-11-09
 tags: [site, design]
-image: /bg.png
+image: /bg.webp
 ---
 
 After almost a year of procrastinating, I've finally made up my mind.
@@ -17,7 +17,7 @@ Of course, I ended up changing the design more than a few times. So here's what 
 
 I still wanted a bit of that manga-inspired feel, but having the city drawing behind every page was too distracting. It now sits above the introduction on the homepage, where you can actually see it without trying to read text over it.
 
-![Line-art city scenery used on the homepage](/bg.png)
+![Line-art city scenery used on the homepage](/bg.webp)
 
 The rest is fairly simple: readable text, softly rounded panels, and thin borders. Light mode and Dark modes which follow your system settings.
 

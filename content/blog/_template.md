@@ -18,4 +18,4 @@ Write your introduction here.
 
 Write your post using Markdown. Local images are optimized automatically:
 
-![Describe the image](/bg.png)
+![Describe the image](/bg.webp)
